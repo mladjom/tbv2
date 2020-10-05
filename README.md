@@ -28,7 +28,7 @@ For ssh access:
 vagrant ssh
 ```
 
-> **Note:** Default preconfigured host is tbv.test.
+> **Note:** Default preconfigured host is tbv2.test.
 
 ## Minimum System requirements
 
