@@ -1,0 +1,11 @@
+/database/*
+!/database/README.md
+/www/*
+!/www/dashboard
+/.vagrant
+/.git
+.idea
+custom.conf
+hosts.yml
+git.sh
+/bin
