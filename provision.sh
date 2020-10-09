@@ -69,6 +69,14 @@ echo -e "\e[96m Installing Symfony \e[39m"
 wget https://get.symfony.com/cli/installer -O - | bash
 sudo mv /home/vagrant/.symfony/bin/symfony /usr/local/bin/symfony
 
+echo -e "\e[96m Installing Node.js \e[39m"
+sudo apt -y install nodejs
+
+echo -e "\e[96m Installing Yarn \e[39m"
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install yarn
+
 # Restart apache server to reflect changes
 sudo systemctl restart apache2
 
@@ -92,6 +100,12 @@ mysql --version
 
 echo -e "\e[96m Check Composer version  \e[39m"
 composer -V
+
+echo -e "\e[96m Check Node.js version  \e[39m"
+nodejs -v
+
+echo -e "\e[96m Check Yarn version  \e[39m"
+yarn --version
 
 # Clean up cache
 sudo apt-get clean
