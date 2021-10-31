@@ -1,0 +1,9 @@
+<VirtualHost *:80>
+    <Directory /var/www/example>
+        Options Indexes FollowSymLinks
+        AllowOverride all
+        Require all granted
+    </Directory>
+    DocumentRoot "/var/www/example"
+    ServerName example.test
+</VirtualHost>

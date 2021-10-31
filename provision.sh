@@ -9,7 +9,8 @@ sudo apt update
 sudo apt upgrade
 
 echo -e "\e[96m Installing some tools  \e[39m"
-sudo apt -y install curl zip git nano unzip webp
+sudo apt -y install curl zip git nano unzip webp nmap
+sudo apt -y install webp jpegoptim optipng
 
 echo -e "\e[96m Installing Apache HTTP Server \e[39m"
 sudo apt -y install apache2
@@ -18,9 +19,15 @@ sudo a2enmod rewrite
 sudo a2enmod ssl
 sudo a2enmod headers
 
-echo -e "\e[96m Installing PHP 7.4  \e[39m"
-sudo apt -y install php libapache2-mod-php php7.4-mysql php7.4-common php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl php7.4-gd
-sudo apt -y install php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring php7.4-opcache php7.4-soap php7.4-zip php7.4-intl
+echo -e "\e[96m Installing PHP 8.x  \e[39m"
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+sudo apt install php8.0 libapache2-mod-php8.0
+sudo systemctl restart apache2
+
+#sudo apt -y install php libapache2-mod-php php7.4-mysql php7.4-common php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl php7.4-gd
+#sudo apt -y install php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring php7.4-opcache php7.4-soap php7.4-zip php7.4-intl
 
 # Restart apache server to reflect changes
 sudo systemctl restart apache2
@@ -65,17 +72,17 @@ php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Insta
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 
-echo -e "\e[96m Installing Symfony \e[39m"
-wget https://get.symfony.com/cli/installer -O - | bash
-sudo mv /home/vagrant/.symfony/bin/symfony /usr/local/bin/symfony
-
-echo -e "\e[96m Installing Node.js \e[39m"
-sudo apt -y install nodejs
-
-echo -e "\e[96m Installing Yarn \e[39m"
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt update && sudo apt install yarn
+#echo -e "\e[96m Installing Symfony \e[39m"
+#wget https://get.symfony.com/cli/installer -O - | bash
+#sudo mv /home/vagrant/.symfony/bin/symfony /usr/local/bin/symfony
+#
+#echo -e "\e[96m Installing Node.js \e[39m"
+#sudo apt -y install nodejs
+#
+#echo -e "\e[96m Installing Yarn \e[39m"
+#curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+#echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+#sudo apt update && sudo apt install yarn
 
 # Restart apache server to reflect changes
 sudo systemctl restart apache2

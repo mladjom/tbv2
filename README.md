@@ -12,7 +12,7 @@ git clone https://github.com/mladjom/tbv2.git
 ```
 
 ```bash
-cd tbv
+cd tbv2
 ```
 
 ```bash
@@ -43,10 +43,13 @@ vagrant ssh
 
 - Ubuntu 20.04 LTS (Focal Fossa)
 - Apache HTTP Server version 2.4
-- PHP 7.4
+- PHP 8.0.x
 - MySQL 8
 - phpMyAdmin 
 - Composer
+- Symfony CLI
+- Node.js
+- Yarn
 
 ## Adding a New Site
 
