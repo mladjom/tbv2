@@ -6,4 +6,4 @@
     </Directory>
     DocumentRoot "/var/www/example"
     ServerName example.test
-</VirtualHost>
+</VirtualHost> 

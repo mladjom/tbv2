@@ -43,7 +43,7 @@ vagrant ssh
 
 - Ubuntu 20.04 LTS (Focal Fossa)
 - Apache HTTP Server version 2.4
-- PHP 8.0.x
+- PHP 8.0.x 
 - MySQL 8
 - phpMyAdmin 
 - Composer
