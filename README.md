@@ -48,7 +48,7 @@ vagrant ssh
 - phpMyAdmin 
 - Composer
 - Symfony CLI
-- Node.js 
+- Node.js
 - Yarn
 
 ## Adding a New Site
