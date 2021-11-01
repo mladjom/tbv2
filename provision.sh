@@ -19,7 +19,7 @@ sudo a2enmod rewrite
 sudo a2enmod ssl
 sudo a2enmod headers
 
-echo -e "\e[96m Installing PHP 8.x  \e[39m"
+echo -e "\e[96m Installing PHP 8.0.x  \e[39m"
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update

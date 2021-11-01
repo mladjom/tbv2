@@ -86,9 +86,9 @@ Vagrant.configure("2") do |config|
   if defined?(VagrantPlugins::HostsUpdater)
     dir = File.dirname(File.expand_path(__FILE__))
     if(File.exist?("#{dir}/hosts.yml"))
-      hosts = YAML.load_file("#{dir}/hosts.yml")
+      # hosts = YAML.load_file("#{dir}/hosts.yml")
       # Pass the found host names to the hostsupdater plugin so it can perform magic.
-      config.hostsupdater.aliases = hosts
+      config.hostsupdater.aliases = YAML.load_file("#{dir}/hosts.yml")
       #  Keeping Host Entries After Suspend/Halt
       config.hostsupdater.remove_on_suspend = true
     end
