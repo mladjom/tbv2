@@ -42,40 +42,42 @@ vagrant ssh
 ## Software included
 
 - Ubuntu 20.04 LTS (Focal Fossa)
-- Apache HTTP Server version 2.4
-- PHP 8.0.x 
+- NGINX
+- PHP 8 
 - MySQL 8
 - phpMyAdmin 
 - Composer
 - Symfony CLI
-- Node.js
-- Yarn
 
 ## Adding a New Site
 
-This package ships with a **custom.conf.example** and **hosts.yml.example** file in the root of the project.
+This package ships with a **custom.example** and **hosts.yml.example** file in the root of the project.
 
-You must rename those files to just **custom.conf** and **hosts.yml**
+You must rename those files to just **custom** and **hosts.yml**
 
 ```bash
-cp custom.conf.example custom.conf
+cp custom.example custom
 cp hosts.yml.example hosts.yml
 ```
 
 > **Note:** Make sure you have hidden files shown on your system.
 
-You can add virtual hosts to apache by editing `custom.conf` file. The `DocumentRoot` of the new virtual host will be a directory within the
+You can add virtual hosts to NGINX by editing `custom` file. The `DocumentRoot` of the new virtual host will be a directory within the
 `www/` folder matching the `ServerName` you specified. The `Directory` maps to a folder on the host machine.
 
-    <VirtualHost *:80>
-        <Directory /var/www/example>
-            Options Indexes FollowSymLinks
-            AllowOverride all
-            Require all granted
-        </Directory>
-        DocumentRoot "/var/www/example"
-        ServerName example.test
-    </VirtualHost>
+    server {
+        listen 80;
+         listen [::]:80;
+  
+         server_name example.com;
+  
+         root /var/www/example;
+         index index.html;
+  
+         location / {
+                 try_files $uri $uri/ =404;
+         }
+    }
 
 In order to access new vagrant hosts via your local browser you will need to edit your hosts file `hosts.yml` like this:
 
@@ -92,8 +94,8 @@ Create `/www/example` folder. Open it in an editor to start making changes to yo
 
 When it's done, visit  [http://example.test](http://example.test).
 
-### Apache
-The Apache server is available at [192.168.33.20](http://192.168.33.20)
+### NGINX
+The NGINX server is available at [192.168.33.20](http://192.168.33.20)
 
 ### MySQL
 Externally the MySQL server is available at port 8889, and when running on the VM it is available as a socket or at port 3306 as usual.  
