@@ -5,8 +5,7 @@
 /.vagrant
 /.git
 .idea
-custom.conf
-hosts.yml
+conf/hosts.yml
 git.sh
 /bin
-custom
+conf/custom

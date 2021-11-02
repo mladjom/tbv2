@@ -12,14 +12,14 @@ sudo apt -y install curl zip git nano unzip webp nmap
 sudo apt -y install webp jpegoptim optipng
 
 echo -e "\e[96m Installing NGINX  \e[39m"
-sudo -y apt install nginx
+sudo apt -y install nginx
  
 echo -e "\e[96m Installing PHP 8.0.x  \e[39m"
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:ondrej/php
 sudo -y apt update
 sudo -y apt install php8.0 
-sudo apt -y install php-common php-mysql php-cgi php-mbstring php-curl 
+sudo apt -y install php-common php-mysql php-cgi php-mbstring php-curl net-tools
 sudo apt -y install php-gd php-xml php-xmlrpc php-pear php-fpm php-bcmath
 
 # echo -e "\e[96m Installing MySQL server \e[39m"
@@ -33,13 +33,13 @@ mysql -u root -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENT
 mysql -u root -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;"
 mysql -u root -proot -e "FLUSH PRIVILEGES;"
 
-if [[ -f /vagrant/default.conf ]]; then
-    cp /vagrant/default /etc/nginx/sites-available/default
+if [[ -f /vagrant/default ]]; then
+    cp /vagrant/conf/default /etc/nginx/sites-available/default
     ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 fi
 
-if [[ -f /vagrant/custom.conf ]]; then
-    cp /vagrant/custom /etc/nginx/sites-available/custom 
+if [[ -f /vagrant/custom ]]; then
+    cp /vagrant/conf/custom /etc/nginx/sites-available/custom 
     ln -s /etc/nginx/sites-available/custom /etc/nginx/sites-enabled/
 fi
 
