@@ -49,7 +49,7 @@ vagrant ssh
 - Composer
 - Symfony CLI
 
-## Adding a New Site
+## Adding a New Site 
 
 This package ships with a **custom.example** and **hosts.yml.example** file in the root of the project.
 

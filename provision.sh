@@ -13,7 +13,7 @@ sudo apt -y install webp jpegoptim optipng
 
 echo -e "\e[96m Installing NGINX  \e[39m"
 sudo -y apt install nginx
-
+ 
 echo -e "\e[96m Installing PHP 8.0.x  \e[39m"
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:ondrej/php

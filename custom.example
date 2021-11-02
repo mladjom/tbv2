@@ -3,7 +3,7 @@
 # You can move that to a different file under sites-available/ and symlink that
 # to sites-enabled/ to enable it.
 #
-#server {
+#server { 
 #       listen 80;
 #       listen [::]:80;
 #
